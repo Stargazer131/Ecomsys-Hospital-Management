@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="login-container">
+    <h2>Login</h2>
+    {% if login_failed %}
+      <div class="alert alert-danger" role="alert">
+        Login failed. Please check your credentials and try again.
+      </div>
+    {% endif %}
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{ username }}" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" value="{{ password }}" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+  </div>
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'styles/customer/login.css' %}" />
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Order{% endblock %} 
+
+{% block content %}
+    <h1>Your order has been placed successfully!</h1>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'scripts/order/order.js' %}"></script>
+{% endblock %}
+
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'styles/order/order.css' %}" />
+{% endblock %}

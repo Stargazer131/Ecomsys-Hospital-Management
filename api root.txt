@@ -1,0 +1,7 @@
+http://localhost:8001/   user
+http://localhost:8002/   product
+http://localhost:8003/   search
+http://localhost:8004/   cart
+http://localhost:8005/   order
+http://localhost:8006/   shipment
+http://localhost:8007/   payment

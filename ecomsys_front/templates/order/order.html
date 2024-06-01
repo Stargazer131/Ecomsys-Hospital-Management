@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Order{% endblock %} 
+
+{% block content %}
+  <section class="order-section">
+    <header>Your Order</header>
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Image</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through order items to populate the table -->
+        {% for item in order_items %}
+        <tr>
+          <td>{{ item.product.name }}</td>
+          <td><img src="{{ item.product.image }}" alt="{{ item.product.name }}" class="product-image"/></td>
+          <td>{{ item.product.type }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.total_price }} $</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="total-price-label">Total Price: ${{ total_price }}</div>
+  </section>
+
+  <form method="POST" action="{% url 'place_order' %}">
+    {% csrf_token %}
+    <section class="shipping-section">
+      <header>Shipping Information</header>
+      <label for="shipping-address">Shipping Address:</label>
+      <textarea id="shipping-address" name="shipping_address" rows="4" cols="50" required></textarea>
+      <label for="shipping-method">Shipping Method:</label>
+      <select id="shipping-method" name="shipping_method">
+        <!-- Populate shipping methods from provided list -->
+        {% for method in shipping_method_choices %}
+        <option value="{{ method }}">{{ method }}</option>
+        {% endfor %}
+      </select>
+      <div class="fee-label">Shipping Fee: <span id="shipping-fee">$0.00</span></div>
+    </section>
+  
+    <section class="payment-section">
+      <header>Payment Information</header>
+      <label for="payment-method">Payment Method:</label>
+      <select id="payment-method" name="payment_method">
+        <!-- Populate payment methods from provided choices -->
+        {% for method in payment_method_choices %}
+        <option value="{{ method }}">{{ method }}</option>
+        {% endfor %}
+      </select>
+      <div id="credit-card-fields" class="payment-fields">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card_number" maxlength="16">
+        <label for="expired-date">Expiration Date:</label>
+        <input type="date" id="expired-date" name="expired_date">
+        <label for="security-code">Security Code:</label>
+        <input type="text" id="security-code" name="security_code" maxlength="6">
+      </div>
+      <div class="total-amount-label">Total Amount: <span id="total-amount">0.00 $</span></div>
+    </section>
+    <button type="submit">Confirm Order</button>
+  </form>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'scripts/order/order.js' %}"></script>
+{% endblock %}
+
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'styles/order/order.css' %}" />
+{% endblock %}

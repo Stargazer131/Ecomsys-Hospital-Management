@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block content %}
+<div class="register-container">
+    <h2>Register</h2>
+    {% if message %}
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+    {% endif %}
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ username }}" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ password }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ email }}" required>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" value="{{ birthday }}" required>
+        
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ phone_number }}" required>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ first_name }}" required>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ last_name }}" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="{{ city }}" required>
+
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" value="{{ district }}" required>
+
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" value="{{ street }}" required>
+
+        <label for="house_number">House Number:</label>
+        <input type="text" id="house_number" name="house_number" value="{{ house_number }}" required>
+
+
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/customer/register.css' %}" />
+{% endblock %}

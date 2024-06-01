@@ -1,0 +1,121 @@
+/* Base styles */
+.order-section, .shipping-section, .payment-section {
+  margin-bottom: 20px;
+}
+
+.order-section header,
+.shipping-section header,
+.payment-section header {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.product-image {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.total-price-label,
+.fee-label,
+.total-amount-label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Additional styles */
+.order-section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.order-section header {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.order-table {
+  margin-top: 10px;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.total-price-label {
+  margin-top: 10px;
+}
+
+.shipping-section,
+.payment-section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.shipping-section header,
+.payment-section header {
+  background-color: #ddd;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.shipping-section label,
+.payment-section label {
+  display: block;
+  margin-top: 10px;
+}
+
+.shipping-section select,
+.payment-section select,
+.shipping-section textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+.fee-label {
+  margin-top: 10px;
+}
+
+.payment-fields {
+  margin-top: 20px;
+}
+
+.total-amount-label {
+  margin-top: 20px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 45%;
+  width: 200px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
